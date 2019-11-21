@@ -45,6 +45,15 @@ const favoritesControl = () => {
 
     // Add or remove weather from favorites array
     state.favorites.addOrRemove(state.weather.id);
+
+    // Get results for favorite weathers
+    state.favorites.getResults().then(function() {
+        // Clear the favorites
+        favoritesView.clearFavorites();
+
+        // Display the favorites
+        favoritesView.showFavorites(state.favorites.results);
+    });
 };
 
 /***************** EVENT LISTENERS *****************/
