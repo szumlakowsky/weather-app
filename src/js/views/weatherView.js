@@ -21,4 +21,19 @@ export const showWeather = (weather) => {
 export const clearWeather = () => {
     elements.result.innerHTML = '';
     elements.likeButton.style.display = 'none';
-}
+};
+
+export const setLikeButton = (weatherID, favorites) => {
+    if(favorites.includes(weatherID)) {
+        elements.likeButton.classList.remove('far');
+        elements.likeButton.classList.add('fas');
+    } else {
+        elements.likeButton.classList.remove('fas');
+        elements.likeButton.classList.add('far');
+    }
+};
+
+export const toggleLikeButton = () => {
+    elements.likeButton.classList.toggle('far');
+    elements.likeButton.classList.toggle('fas');
+};

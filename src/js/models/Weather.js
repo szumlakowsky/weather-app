@@ -19,6 +19,7 @@ export default class Weather {
             this.maxTemp = Math.round(weather.main.temp_max - 273.15);
             this.desc = weather.weather[0].description;
             this.icon = weather.weather[0].icon;
+            this.id = weather.id;
         } catch(error) {
             alert('Error getting the weather! Try again.');
             console.log(error);

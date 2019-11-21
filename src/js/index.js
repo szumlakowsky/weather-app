@@ -1,6 +1,8 @@
-import Weather from './models/Weather';
-import * as weatherView from './views/weatherView';
 import { elements } from './views/base';
+import Weather from './models/Weather';
+import Favorites from './models/Favorites';
+import * as weatherView from './views/weatherView';
+import * as favoritesView from './views/favoritesView';
 
 // THE STATE OBJECT FOR THE DATA
 const state = {};
@@ -28,7 +30,21 @@ const displayWeather = () => {
 
         // Display the weather results
         if(state.weather.temp) weatherView.showWeather(state.weather);
+
+        // Set the like button to the correct one
+        if(state.favorites) weatherView.setLikeButton(state.weather.id, state.favorites.favorites);
     });
+};
+
+const favoritesControl = () => {
+    // Toggle like button
+    weatherView.toggleLikeButton();
+
+    // Create a state for the favorites
+    if(!state.favorites) state.favorites = new Favorites();
+
+    // Add or remove weather from favorites array
+    state.favorites.addOrRemove(state.weather.id);
 };
 
 /***************** EVENT LISTENERS *****************/
@@ -47,7 +63,7 @@ elements.searchIcon.addEventListener('click', e => {
     displayWeather();
 });
 
+// MOUSE CLICK ON THE LIKE BUTTON
 elements.likeButton.addEventListener('click', e => {
-    elements.likeButton.classList.toggle('far');
-    elements.likeButton.classList.toggle('fas');
+    favoritesControl();
 });
