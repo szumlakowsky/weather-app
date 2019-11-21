@@ -90,6 +90,16 @@ body {
     /* background-color: seagreen; */
 }
 
+.weather-like-button {
+    margin: 10px;
+    text-align: right;
+}
+
+.weather-like-button .fa-heart {
+    font-size: 2rem;
+    display: none;
+}
+
 .weather-name {
     margin-top: 100px;
     font-size: 3em;

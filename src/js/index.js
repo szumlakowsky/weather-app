@@ -23,10 +23,10 @@ const searchWeather = () => {
 const displayWeather = () => {
     // Get results for the searched weather
     state.weather.getResults().then(function() {
-        // Clear the weather result
+        // Clear the weather results
         weatherView.clearWeather();
 
-        // Show the weather on the page
+        // Display the weather results
         if(state.weather.temp) weatherView.showWeather(state.weather);
     });
 };
@@ -45,4 +45,9 @@ document.addEventListener('keydown', e => {
 elements.searchIcon.addEventListener('click', e => {
     searchWeather();
     displayWeather();
+});
+
+elements.likeButton.addEventListener('click', e => {
+    elements.likeButton.classList.toggle('far');
+    elements.likeButton.classList.toggle('fas');
 });

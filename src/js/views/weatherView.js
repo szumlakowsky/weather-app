@@ -14,7 +14,11 @@ export const showWeather = (weather) => {
         <div class="weather-max-temp"><p>MAX</p><p>${weather.maxTemp}&#176C</p></div>
     `;
 
+    elements.likeButton.style.display = 'inline-block';
     elements.result.insertAdjacentHTML('beforeend', markup);
 };
 
-export const clearWeather = () => elements.result.innerHTML = '';
+export const clearWeather = () => {
+    elements.result.innerHTML = '';
+    elements.likeButton.style.display = 'none';
+}
