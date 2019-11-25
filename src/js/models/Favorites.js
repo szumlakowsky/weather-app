@@ -33,4 +33,13 @@ export default class Favorites {
             }
         }
     }
+
+    persistData() {
+        localStorage.setItem('favorites', JSON.stringify(this.favorites));
+    }
+
+    getStorage() {
+        var storage = localStorage.getItem('favorites');
+        if(storage) this.favorites = JSON.parse(storage);
+    }
 }

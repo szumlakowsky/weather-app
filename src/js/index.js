@@ -40,9 +40,6 @@ const favoritesControl = () => {
     // Toggle like button
     weatherView.toggleLikeButton();
 
-    // Create a state for the favorites
-    if(!state.favorites) state.favorites = new Favorites();
-
     // Add or remove weather from favorites array
     state.favorites.addOrRemove(state.weather.id);
 
@@ -54,6 +51,9 @@ const favoritesControl = () => {
         // Display the favorites
         favoritesView.showFavorites(state.favorites.results);
     });
+
+    // Save favorites to the local storage
+    state.favorites.persistData();
 };
 
 /***************** EVENT LISTENERS *****************/
@@ -75,4 +75,22 @@ elements.searchIcon.addEventListener('click', e => {
 // MOUSE CLICK ON THE LIKE BUTTON
 elements.likeButton.addEventListener('click', e => {
     favoritesControl();
+});
+
+// ON LOAD
+window.addEventListener('load', e => {
+    // Create a state for the favorites
+    state.favorites = new Favorites();
+
+    // Retrieve the local storage of favorites
+    state.favorites.getStorage();
+
+    // Display the local storage of favorites
+    state.favorites.getResults().then(function() {
+        // Clear the favorites
+        favoritesView.clearFavorites();
+
+        // Display the favorites
+        favoritesView.showFavorites(state.favorites.results);
+    });
 });

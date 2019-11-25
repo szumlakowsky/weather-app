@@ -15,7 +15,6 @@ body {
 }
 
 .header {
-    /* background-color: powderblue; */
     background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2));
     height: 8%;
 }
@@ -27,7 +26,6 @@ body {
     align-items: center;
     justify-content: center;
     float: left;
-    /* background-color: burlywood; */
 }
 
 .search input {
@@ -55,7 +53,6 @@ body {
     display: flex;
     float: left;
     font-size: 2rem;
-    /* background-color: pink; */
 }
 
 .logo p {
@@ -64,7 +61,6 @@ body {
 
 .main {
     height: 92%;
-    /* background-color: blue; */
 }
 
 .favorites {
@@ -72,14 +68,52 @@ body {
     width: 30%;
     float: left;
     background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1));
-    /* background-color: orangered; */
 }
 
-.fav {
+.fav-light {
     height: 12.5%;
     width: 100%;
     float: left;
-    /* background-color: steelblue; */
+    font-size: 2rem;
+}
+
+.fav-dark {
+    height: 12.5%;
+    width: 100%;
+    float: left;
+    font-size: 2rem;
+    background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1));
+}
+
+.fav-name {
+    width: 50%;
+    height: 100%;
+    float:left;
+    display: flex;
+    align-items: center;
+    margin-left: 1rem;
+}
+
+.fav-temp {
+    width: 20%;
+    height: 100%;
+    float: left;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.fav-icon {
+    width: 25%;
+    max-height: 100%;
+    float: left;
+    display: flex;
+    align-items: center;
+}
+
+.fav-icon img {
+    height: 100%;
+    object-fit: cover;
 }
 
 .result {
@@ -87,7 +121,6 @@ body {
     width: 70%;
     float: left;
     text-align: center;
-    /* background-color: seagreen; */
 }
 
 .weather-like-button {
@@ -96,7 +129,7 @@ body {
 }
 
 .weather-like-button .fa-heart {
-    font-size: 2rem;
+    font-size: 2.5rem;
     display: none;
 }
 
